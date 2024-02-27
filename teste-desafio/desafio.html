@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Valor do saque: <input type="number" id="input_saque"><br>
+    <button onclick="calcular()"> Sacar </button><br><br>
+    <div id="mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function calcular(){
+
+        var limite = Number(input_saque.value);
+        var limiteMudavel = Number(input_saque.value);
+        var contadorCem = 0;
+        var contadorCinquenta = 0;
+        var contadorDez = 0;
+        var contadorCinco = 0;
+        var contadorDois = 0;
+        var contadorUm = 0;
+
+
+        for (var limiteMudavel = limite; limiteMudavel > 0;) {
+
+            if(limiteMudavel >= 100){
+
+                limiteMudavel = limiteMudavel - 100;
+                contadorCem ++
+
+            } else if(limiteMudavel >= 50){
+
+                limiteMudavel = limiteMudavel - 50;
+                contadorCinquenta ++
+
+            }else if(limiteMudavel >= 10){
+
+                limiteMudavel = limiteMudavel - 10;
+                contadorDez ++
+
+            }else if(limiteMudavel >= 5){
+
+                limiteMudavel = limiteMudavel - 5;
+                contadorCinco ++
+
+            }else if(limiteMudavel >= 2){
+
+                limiteMudavel = limiteMudavel - 2;
+                contadorDois ++
+
+            }else {
+
+                limiteMudavel = limiteMudavel - 1;
+                contadorUm ++
+
+            }
+            
+
+        }
+
+        var minimoNotas = contadorCem + contadorCinquenta + contadorDez + contadorCinco + contadorDois + contadorUm;
+
+        mensagem.innerHTML = `
+        Valor de saque: R$ ${limite} <br>
+            Quantidade de cédulas: ${minimoNotas} <br><br>
+            Distribuição de cédulas: <br>
+            ${contadorCem} cédulas de R$ 100 <br>
+            ${contadorDez} cédulas de R$ 10 <br>
+            ${contadorCinco} cédula de R$ 5 <br>
+            ${contadorDois} cédula de R$ 2 <br>
+            ${contadorUm} cédula de R$ 1 <br>`
+
+    }
+
+</script>
