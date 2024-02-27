@@ -1,0 +1,5 @@
+name: 'saque'
+type: module
+description: 'Módulo para desafio de saque'
+package: Custom
+core_version_requirement: ^9 || ^10
